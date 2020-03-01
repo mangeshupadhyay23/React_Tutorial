@@ -1,0 +1,11 @@
+.info{
+    border: 1px solid black;
+    padding: 40px;
+    margin-left: 400px;
+    margin-right:400px ;
+    font-size: 20px;
+    box-shadow: grey 2px 2px 3px 3px;
+}
+input{
+    box-shadow: grey 2px 2px 3px 3px;
+}

@@ -1,7 +1,7 @@
 // A component is basically a fuunction returning a JSX 
 import React from 'react';
 import './person.css';
-import Radium from'radium';
+
 
 //we can use any argument name in place of prop but props is common term
 // if we use class based component in place of funciton then we have to write {this.props.name}
@@ -18,4 +18,4 @@ const person = (props)=>{
     </div>
     );
 }
-export default Radium(person);
+export default person;

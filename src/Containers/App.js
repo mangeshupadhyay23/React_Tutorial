@@ -1,7 +1,7 @@
 import React from 'react';
 import './App.css';
-import Person from './Person/Person';
-import Radium from 'radium';
+import Persons from '../Components/Persons/Persons';
+
 
 
 class App extends React.Component{
@@ -84,65 +84,59 @@ class App extends React.Component{
             fontSize:'20px',
             padding:'10px',
             borderRadius:'3%',
-            ':hover':{
+            /*':hover':{
                 backgroundColor:'lightgreen',
                 color:'black'
-            }
+            },*/
+            
 
         };
 
         let persons=null;
 
         if(this.state.showNames){
+            
             persons=(
-                <div>
-                {this.state.persons.map((single,index)=>{
-                   return( <Person 
-                    name={single.name} 
-                    key={single.id} 
-                    age={single.age}
-                    clicked={()=>this.deleteHandler(index) } 
-                    changed={(event)=>this.changeHandler(event,single.id)}
-                    //we creadted an anonymus funciton that the changhandler will work on event of that specific element of our list
-                    />)
-                    
-                })}
+            <div>
+                <Persons 
+                persons={this.state.persons}
+                changed={this.changeHandler}
+                clicked={this.deleteHandler}/>
             </div>
-            )
-            style.backgroundColor='green';
-            style[':hover']={
-                backgroundColor:'lightred',
-                color:'black'
-            };
+            );
+            
+                style.backgroundColor='green';
+               
+            
         }
         
 
 
 
         return(
-            <div>
-                <h1>Hello React</h1>
-                <p className={classes.join(' ')}>This is Working</p>
-                <button onClick={this.toggleHandlder} key={a} style={style} >Show Names</button>
-                <button onClick={this.clickHandler} key={b} style={style}>Switch Name</button>
+                <div>
+                    <h1>Hello React</h1>
+                    <p className={classes.join(' ')}>This is Working</p>
+                    <button onClick={this.toggleHandlder} key={a} style={style} >Show Names</button>
+                    <button onClick={this.clickHandler} key={b} style={style}>Switch Name</button>
 
-                {persons}
+                    {persons}
 
-                {/*{this.state.persons.map((person,index)=>{
-                    return(
-                        <Person name={person.name} age={person.age}/>
-                    )
-                })}*/}
-               
-
-                {/*{this.state.showNames ? <div>
-                <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
-                <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clicked={this.clickHandler} changed={this.changeHandler}/>
-                <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
-                </div>:null}*/}
+                    {/*{this.state.persons.map((person,index)=>{
+                        return(
+                            <Person name={person.name} age={person.age}/>
+                        )
+                    })}*/}
                 
-            </div>
+
+                    {/*{this.state.showNames ? <div>
+                    <Person name={this.state.persons[0].name} age={this.state.persons[0].age}/>
+                    <Person name={this.state.persons[1].name} age={this.state.persons[1].age} clicked={this.clickHandler} changed={this.changeHandler}/>
+                    <Person name={this.state.persons[2].name} age={this.state.persons[2].age}/>
+                    </div>:null}*/}
+                    
+                </div>
         );
     }
 }
-export default Radium(App); //higher order component
+export default App; //higher order component

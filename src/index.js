@@ -1,7 +1,7 @@
 import React from 'react';
 import ReactDOM from 'react-dom';
 import './index.css';
-import App from './App';
+import App from './Containers/App';
 //import Using_state from './Person/using state'
 import * as serviceWorker from './serviceWorker';
 //import Revision from './Person/revision';

@@ -1,17 +1,23 @@
 import React from 'react';
 import './App.css';
 import Persons from '../Components/Persons/Persons';
+import Cockpit from '../Components/Cockpit/Cockpit';
 
 
+{/* componentwillunmount is a funciton that can be used to remove a class based component from use in hooks we use useEffect to remove a fuction based component*/}
 
-class App extends React.Component{
+
+class App extends React.Component{ //u can use pure component which is inbuilt with shouldComponentUpdate and it will automatically 
+    // check all the conditio ahether the input are changing or not and should we render it or not 
+    //it can only be used for the class based component
     state={
         persons:[
             {id:'a',name:'Max',id:20},
             {id:'b',name:'Jay',id:19},
             {id:'c',name:'Suzine',id:23}
         ],
-        showname:false
+        showname:false,
+        showCockpit:true
     }
     clickHandler=()=>{
         this.setState({
@@ -115,12 +121,20 @@ class App extends React.Component{
 
         return(
                 <div>
-                    <h1>Hello React</h1>
-                    <p className={classes.join(' ')}>This is Working</p>
-                    <button onClick={this.toggleHandlder} key={a} style={style} >Show Names</button>
-                    <button onClick={this.clickHandler} key={b} style={style}>Switch Name</button>
-
-                    {persons}
+                    <button 
+                    onClick={()=>{this.setState({showCockpit:!this.state.showCockpit})}}>Remove Cockpit</button>
+                    {this.state.showCockpit?
+                    <div>
+                    <Cockpit
+                    tittle={this.props.tittle} //have to use this.props to access a prop in a class based component
+                    classes={classes}
+                    style={style}
+                    toggleHandlder={this.toggleHandlder}
+                    clickHandler={this.clickHandler}
+                    a={a}
+                    b={b}/>
+                    </div>:null}
+                     {persons}
 
                     {/*{this.state.persons.map((person,index)=>{
                         return(

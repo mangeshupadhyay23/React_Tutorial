@@ -1,7 +1,11 @@
 import React from 'react';
 import Person from './Person/Person';
 
-const Persons  = (props)=>props.persons.map((single,index)=>{
+
+
+const Persons  = (props)=> 
+            props.persons.map((single,index)=>{
+
                 return <Person 
                 name={single.name} 
                 key={single.id} 
@@ -12,4 +16,5 @@ const Persons  = (props)=>props.persons.map((single,index)=>{
                 />
                 
             })
+        
 export default Persons;
